@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chelsea Redding — Validation & Quality Assurance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:       #0f1923;
+    --paper:     #f6f4ef;
+    --mid:       #6b7a8d;
+    --rule:      #d4cfc6;
+    --accent:    #1a5c8a;
+    --accent2:   #2e9e7a;
+    --warn:      #c05c2a;
+    --card-bg:   #ffffff;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
+    --serif: 'IBM Plex Serif', serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 2rem;
+    height: 56px;
+  }
+  .nav-logo {
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    color: var(--mid);
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ink); }
+
+  /* ── LAYOUT ── */
+  .page { padding-top: 56px; }
+  section { padding: 5rem 0; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+
+  /* ── HERO ── */
+  #hero {
+    padding: 6rem 0 5rem;
+    border-bottom: 1px solid var(--rule);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(2.2rem, 4vw, 3rem);
+    font-weight: 300;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 1.25rem;
+  }
+  h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-sub {
+    font-size: 1rem;
+    color: var(--mid);
+    font-weight: 300;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    padding: 0.65rem 1.4rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background 0.2s;
+  }
+  .btn-primary:hover { background: #134b73; }
+  .btn-ghost {
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    padding: 0.65rem 1.4rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  /* Hero stats panel */
+  .hero-stats {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    padding: 2rem;
+  }
+  .stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0.9rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
+  .stat-row:first-child { padding-top: 0; }
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    color: var(--mid);
+    text-transform: uppercase;
+  }
+  .stat-value {
+    font-family: var(--serif);
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--ink);
+  }
+  .stat-value span {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--mid);
+    margin-left: 0.3rem;
+  }
+
+  /* ── SECTION HEADERS ── */
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+    color: var(--mid);
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 2.5rem;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--rule);
+  }
+  h2 {
+    font-family: var(--serif);
+    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about { border-bottom: 1px solid var(--rule); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 4rem;
+    align-items: start;
+  }
+  .about-body p {
+    font-size: 1.0rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+  .sidebar-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+  }
+  .sidebar-card h3 {
+    font-family: var(--mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 1rem;
+  }
+  .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    padding: 0.25rem 0.6rem;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+  }
+  .tag.accent { background: #e8f1f8; border-color: #b3d0e8; color: var(--accent); }
+  .tag.green  { background: #e6f5f1; border-color: #a8ddd1; color: var(--accent2); }
+
+  /* ── EXPERIENCE ── */
+  #experience { border-bottom: 1px solid var(--rule); }
+  .timeline { position: relative; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.5rem; bottom: 0;
+    width: 1px;
+    background: var(--rule);
+  }
+  .job {
+    padding-left: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .job:last-child { margin-bottom: 0; }
+  .job::before {
+    content: '';
+    position: absolute;
+    left: -3px; top: 0.55rem;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+  .job-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.25rem;
+  }
+  .job-title {
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .job-date {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--mid);
+    white-space: nowrap;
+  }
+  .job-company {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    margin-bottom: 0.75rem;
+  }
+  .job-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .job-bullets li {
+    font-size: 0.92rem;
+    font-weight: 300;
+    line-height: 1.65;
+    color: var(--ink);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .job-bullets li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--rule);
+    font-size: 0.8rem;
+  }
+  .job-highlight {
+    display: inline;
+    background: linear-gradient(to bottom, transparent 60%, #c8e8d5 60%);
+  }
+
+  /* ── COMPETENCIES ── */
+  #competencies { border-bottom: 1px solid var(--rule); }
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .comp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+    transition: border-color 0.2s;
+  }
+  .comp-card:hover { border-color: var(--accent); }
+  .comp-card-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+  .comp-card h3 {
+    font-family: var(--serif);
+    font-size: 1.05rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+  }
+  .comp-card p {
+    font-size: 0.85rem;
+    font-weight: 300;
+    color: var(--mid);
+    line-height: 1.6;
+  }
+
+  /* ── EDUCATION & CERTS ── */
+  #education { border-bottom: 1px solid var(--rule); }
+  .edu-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  .edu-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+  }
+  .edu-card-type {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid);
+    margin-bottom: 0.5rem;
+  }
+  .edu-card h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 400;
+    margin-bottom: 0.25rem;
+  }
+  .edu-card p {
+    font-size: 0.85rem;
+    color: var(--mid);
+    font-weight: 300;
+  }
+  .cert-card {
+    background: linear-gradient(135deg, #e8f1f8 0%, #f6f4ef 100%);
+    border: 1px solid #b3d0e8;
+  }
+  .cert-card .edu-card-type { color: var(--accent); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--ink); color: var(--paper); }
+  #contact .section-label { color: rgba(246,244,239,0.4); }
+  #contact .section-label::after { background: rgba(246,244,239,0.15); }
+  #contact h2 { color: var(--paper); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.5rem; }
+  .contact-sub {
+    font-size: 1rem;
+    font-weight: 300;
+    color: rgba(246,244,239,0.6);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+  }
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    color: var(--paper);
+    text-decoration: none;
+    padding: 0.65rem 1.1rem;
+    border: 1px solid rgba(246,244,239,0.2);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .contact-link:hover { border-color: rgba(246,244,239,0.6); background: rgba(255,255,255,0.05); }
+  .contact-link svg { opacity: 0.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    border-top: 1px solid rgba(246,244,239,0.1);
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: rgba(246,244,239,0.3);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 720px) {
+    .hero-grid, .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .comp-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    .container { padding: 0 1.25rem; }
+    section { padding: 3.5rem 0; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#">CR // Portfolio</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#competencies">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="page">
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <p class="hero-eyebrow">Validation Engineer · Quality Assurance · Data Analytics</p>
+          <h1>Chelsea<br><em>Redding</em></h1>
+          <p class="hero-sub">
+            11+ years building quality systems, validating processes, and turning complex pharmaceutical data into clear, actionable insight — from cleanroom bench to enterprise CPV program.
+          </p>
+          <div class="hero-ctas">
+            <a class="btn-primary" href="mailto:Chelsea.R.Redding@gmail.com">Get in touch</a>
+            <a class="btn-ghost" href="#experience">View experience</a>
+          </div>
+        </div>
+        <div class="hero-stats" aria-label="Career highlights">
+          <div class="stat-row">
+            <span class="stat-label">Years in pharma</span>
+            <span class="stat-value">11+ <span>yrs</span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Roles held</span>
+            <span class="stat-value">4 <span>positions</span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Op. time reduction</span>
+            <span class="stat-value">30%+ <span>improvement</span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Regulatory frameworks</span>
+            <span class="stat-value">12+ <span>standards</span></span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">SSBB certification</span>
+            <span class="stat-value">In <span>progress</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <p class="section-label">About</p>
+      <div class="about-grid">
+        <div class="about-body">
+          <p>
+            I specialize in the intersection of pharmaceutical quality and data science — building the systems, analyses, and automation that keep complex manufacturing processes validated, compliant, and continuously improving.
+          </p>
+          <p>
+            At MU Research Reactor, I architected and now solely own the company's entire Continued Process Verification program, developing custom VBA-driven statistical tools for real-time SPC monitoring across all product lines. Before that, I led the QC Microbiology department, driving process improvements that cut operational time by over 30% while maintaining strict cGMP and regulatory compliance.
+          </p>
+          <p>
+            My background spans the full quality lifecycle — from bench-level analytical testing as a QC Chemist, through microbiological method validation and department leadership, to enterprise-level process validation and data strategy. I hold an M.S. in Data Science and Analytics and am a Six Sigma Black Belt candidate.
+          </p>
+        </div>
+        <div>
+          <div class="sidebar-card" style="margin-bottom: 1rem;">
+            <h3>Technical Stack</h3>
+            <div class="tag-list">
+              <span class="tag accent">Excel / VBA</span>
+              <span class="tag accent">Minitab</span>
+              <span class="tag accent">SPC Charting</span>
+              <span class="tag accent">Statistical Modeling</span>
+              <span class="tag">ANOVA</span>
+              <span class="tag">Normality Testing</span>
+              <span class="tag">Probability Plots</span>
+              <span class="tag">Data Visualization</span>
+            </div>
+          </div>
+          <div class="sidebar-card">
+            <h3>Regulatory Fluency</h3>
+            <div class="tag-list">
+              <span class="tag green">cGMP</span>
+              <span class="tag green">21 CFR 210/211</span>
+              <span class="tag green">ICH Q8–Q12</span>
+              <span class="tag green">EU GMP Annex 15</span>
+              <span class="tag green">USP / EP</span>
+              <span class="tag green">ALCOA+</span>
+              <span class="tag green">GAMP 5</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <p class="section-label">Experience</p>
+      <div class="timeline">
+
+        <div class="job">
+          <div class="job-meta">
+            <span class="job-title">Validation Engineer</span>
+            <span class="job-date">Jul 2024 – Present</span>
+          </div>
+          <p class="job-company">MU Research Reactor · Remote</p>
+          <ul class="job-bullets">
+            <li>Sole architect and owner of the company's entire <span class="job-highlight">Continued Process Verification (CPV) program</span> — all product lines, all lifecycle management.</li>
+            <li>Built custom VBA-driven automations for data cleaning, statistical analysis, and visualization of large, evolving datasets.</li>
+            <li>Continuously monitors process control via dynamic probability plots, control charts with Nelson/Western Electric rules, and self-developed outlier detection tools.</li>
+            <li>Authors PPQ protocols and summary reports, stability studies, and cleanroom qualification packages (IQ/OQ/PQ, ISO certification, HEPA, environmental monitoring).</li>
+            <li>Develops revalidation strategies for infrastructure and process changes to ensure operational continuity and risk mitigation.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <span class="job-title">Lead, Quality Control Microbiology</span>
+            <span class="job-date">Feb 2021 – Jul 2024</span>
+          </div>
+          <p class="job-company">MU Research Reactor · Columbia, MO</p>
+          <ul class="job-bullets">
+            <li>Identified and eliminated workflow bottlenecks across multiple high-frequency procedures, delivering a <span class="job-highlight">&gt;30% reduction in operational time, cost, and error rate.</span></li>
+            <li>Authored validation protocols, summary reports, DMF submissions, and annual product reviews (APR) for multiple product lines.</li>
+            <li>Engineered risk assessment frameworks (FMEA, FTA) to preemptively address compliance and safety risks.</li>
+            <li>Central contributor to development, validation, and commercial launch of new product lines under cGMP.</li>
+            <li>Built KPI monitoring systems and kanban boards to enforce data integrity and track quality performance.</li>
+            <li>Provided direct audit support: prepared technical data packages for FDA and customer audits, authored CAPA responses.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <span class="job-title">Quality Control Microbiologist</span>
+            <span class="job-date">May 2017 – May 2021</span>
+          </div>
+          <p class="job-company">MU Research Reactor · Columbia, MO</p>
+          <ul class="job-bullets">
+            <li>Performed environmental monitoring and analytical testing for batch release, process validation, and product stability.</li>
+            <li>Developed and validated analytical methods; managed equipment qualification, calibration, and lifecycle documentation.</li>
+            <li>Oversaw procurement, qualification, and inventory management of cleanroom materials and equipment.</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-meta">
+            <span class="job-title">Quality Control Chemist</span>
+            <span class="job-date">Sep 2014 – May 2017</span>
+          </div>
+          <p class="job-company">MU Research Reactor · Columbia, MO</p>
+          <ul class="job-bullets">
+            <li>Performed analytical testing for batch release, process validation, product stability, and material qualification.</li>
+            <li>Developed and validated analytical methods and equipment use procedures.</li>
+            <li>Managed equipment qualification, calibration, and testing material inventory.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPETENCIES -->
+  <section id="competencies">
+    <div class="container">
+      <p class="section-label">Core Competencies</p>
+      <div class="comp-grid">
+
+        <div class="comp-card">
+          <p class="comp-card-label">Process Validation</p>
+          <h3>Validation Lifecycle</h3>
+          <p>Process Development through PPQ and CPV, including revalidation strategy for infrastructure and process changes.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Statistical Analysis</p>
+          <h3>SPC &amp; Data Analytics</h3>
+          <p>I-MR/X-Bar control charts, Nelson/Western Electric rules, CpK/Ppk, ANOVA, normality testing, outlier and trend detection.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Risk Management</p>
+          <h3>Quality Risk Management</h3>
+          <p>FMEA, FTA, ETA, and dynamic risk assessments to protect product quality, compliance, and operational continuity.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Automation</p>
+          <h3>Data Tools &amp; VBA</h3>
+          <p>Custom Excel VBA macros for data cleaning, automated statistical analysis, and dynamic visualization of large datasets.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Regulatory</p>
+          <h3>Compliance &amp; Audits</h3>
+          <p>Expert in 21 CFR 210/211, ICH Q-series, EU GMP Annex 15, USP/EP, ALCOA+ data integrity, and FDA audit support.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Leadership</p>
+          <h3>Documentation &amp; CAPA</h3>
+          <p>Root cause analysis, CAPA authoring and implementation, DMF submissions, APRs, and cross-functional stakeholder communication.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <p class="section-label">Education &amp; Certifications</p>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <p class="edu-card-type">Graduate Degree</p>
+          <h3>M.S. Data Science &amp; Analytics</h3>
+          <p>University of Missouri · 2020</p>
+        </div>
+        <div class="edu-card">
+          <p class="edu-card-type">Undergraduate Degree</p>
+          <h3>B.S. Biology</h3>
+          <p>Truman State University · 2014</p>
+        </div>
+        <div class="edu-card cert-card">
+          <p class="edu-card-type">Certification — In Progress</p>
+          <h3>Six Sigma Black Belt</h3>
+          <p>ASQ · Active candidate</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <p class="section-label">Contact</p>
+      <h2>Let's talk quality.</h2>
+      <p class="contact-sub">Open to roles in pharmaceutical validation, quality assurance, and data analytics. Feel free to reach out directly.</p>
+      <div class="contact-links">
+        <a class="contact-link" href="mailto:Chelsea.R.Redding@gmail.com">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          Chelsea.R.Redding@gmail.com
+        </a>
+        <a class="contact-link" href="tel:8134343489">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 8.91a16 16 0 0 0 6 6l.79-.79a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (813) 434-3489
+        </a>
+        <a class="contact-link" href="https://linkedin.com" target="_blank" rel="noopener">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn Profile
+        </a>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<footer>
+  <p>Chelsea Redding · Validation Engineer · QA Specialist</p>
+  <p>Saint Petersburg, FL</p>
+</footer>
+
+</body>
+</html>
