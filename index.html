@@ -4,452 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chelsea Redding — Continued Process Verification, Statistical Process Control, & Data Analytics Specialist </title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
+<meta name="description" content="Chelsea Redding: continued process verification, statistical process control, and data analytics for pharmaceutical manufacturing.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,600;1,300&family=IBM+Plex+Serif:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink:       #0f1923;
-    --paper:     #f6f4ef;
-    --mid:       #6b7a8d;
-    --rule:      #d4cfc6;
-    --accent:    #1a5c8a;
-    --accent2:   #2e9e7a;
-    --warn:      #c05c2a;
-    --card-bg:   #ffffff;
-    --mono: 'IBM Plex Mono', monospace;
-    --sans: 'IBM Plex Sans', sans-serif;
-    --serif: 'IBM Plex Serif', serif;
-  }
-
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: var(--sans);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 2rem;
-    height: 56px;
-  }
-  .nav-logo {
-    font-family: var(--mono);
-    font-size: 0.78rem;
-    letter-spacing: 0.08em;
-    color: var(--accent);
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.06em;
-    color: var(--mid);
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: color 0.2s;
-  }
-  .nav-links a:hover { color: var(--ink); }
-
-  /* ── LAYOUT ── */
-  .page { padding-top: 56px; }
-  section { padding: 5rem 0; }
-  .container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
-
-  /* ── HERO ── */
-  #hero {
-    padding: 6rem 0 5rem;
-    border-bottom: 1px solid var(--rule);
-    position: relative;
-    overflow: hidden;
-  }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
-  }
-  .hero-eyebrow {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.12em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  h1 {
-    font-family: var(--serif);
-    font-size: clamp(2.2rem, 4vw, 3rem);
-    font-weight: 300;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    margin-bottom: 1.25rem;
-  }
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-  .hero-sub {
-    font-size: 1rem;
-    color: var(--mid);
-    font-weight: 300;
-    line-height: 1.7;
-    margin-bottom: 2rem;
-  }
-  .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-  .btn-primary {
-    background: var(--accent);
-    color: #fff;
-    padding: 0.65rem 1.4rem;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: background 0.2s;
-  }
-  .btn-primary:hover { background: #134b73; }
-  .btn-ghost {
-    border: 1px solid var(--rule);
-    color: var(--ink);
-    padding: 0.65rem 1.4rem;
-    font-family: var(--mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.06em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .btn-ghost:hover { border-color: var(--ink); }
-
-  /* Hero stats panel */
-  .hero-stats {
-    background: var(--card-bg);
-    border: 1px solid var(--rule);
-    padding: 2rem;
-  }
-  .stat-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 0.9rem 0;
-    border-bottom: 1px solid var(--rule);
-  }
-  .stat-row:last-child { border-bottom: none; padding-bottom: 0; }
-  .stat-row:first-child { padding-top: 0; }
-  .stat-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.08em;
-    color: var(--mid);
-    text-transform: uppercase;
-  }
-  .stat-value {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: var(--ink);
-  }
-  .stat-value span {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--mid);
-    margin-left: 0.3rem;
-  }
-
-  /* ── SECTION HEADERS ── */
-  .section-label {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.14em;
-    color: var(--mid);
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 2.5rem;
-  }
-  .section-label::after {
-    content: '';
-    flex: 1;
-    height: 1px;
-    background: var(--rule);
-  }
-  h2 {
-    font-family: var(--serif);
-    font-size: clamp(1.5rem, 2.5vw, 1.9rem);
-    font-weight: 300;
-    margin-bottom: 0.5rem;
-  }
-
-  /* ── ABOUT ── */
-  #about { border-bottom: 1px solid var(--rule); }
-  .about-grid {
-    display: grid;
-    grid-template-columns: 3fr 2fr;
-    gap: 4rem;
-    align-items: start;
-  }
-  .about-body p {
-    font-size: 1.0rem;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--ink);
-    margin-bottom: 1rem;
-  }
-  .sidebar-card {
-    background: var(--card-bg);
-    border: 1px solid var(--rule);
-    padding: 1.5rem;
-  }
-  .sidebar-card h3 {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 1rem;
-  }
-  .tag-list { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-  .tag {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.04em;
-    padding: 0.25rem 0.6rem;
-    background: var(--paper);
-    border: 1px solid var(--rule);
-    color: var(--ink);
-  }
-  .tag.accent { background: #e8f1f8; border-color: #b3d0e8; color: var(--accent); }
-  .tag.green  { background: #e6f5f1; border-color: #a8ddd1; color: var(--accent2); }
-
-  /* ── EXPERIENCE ── */
-  #experience { border-bottom: 1px solid var(--rule); }
-  .timeline { position: relative; }
-  .timeline::before {
-    content: '';
-    position: absolute;
-    left: 0; top: 0.5rem; bottom: 0;
-    width: 1px;
-    background: var(--rule);
-  }
-  .job {
-    padding-left: 2rem;
-    margin-bottom: 3rem;
-    position: relative;
-  }
-  .job:last-child { margin-bottom: 0; }
-  .job::before {
-    content: '';
-    position: absolute;
-    left: -3px; top: 0.55rem;
-    width: 7px; height: 7px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-  .job-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-bottom: 0.25rem;
-  }
-  .job-title {
-    font-family: var(--sans);
-    font-size: 1rem;
-    font-weight: 600;
-    color: var(--ink);
-  }
-  .job-date {
-    font-family: var(--mono);
-    font-size: 0.7rem;
-    color: var(--mid);
-    white-space: nowrap;
-  }
-  .job-company {
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    color: var(--accent);
-    letter-spacing: 0.04em;
-    margin-bottom: 0.75rem;
-  }
-  .job-bullets {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-  }
-  .job-bullets li {
-    font-size: 0.92rem;
-    font-weight: 300;
-    line-height: 1.65;
-    color: var(--ink);
-    padding-left: 1rem;
-    position: relative;
-  }
-  .job-bullets li::before {
-    content: '—';
-    position: absolute;
-    left: 0;
-    color: var(--rule);
-    font-size: 0.8rem;
-  }
-  .job-highlight {
-    display: inline;
-    background: linear-gradient(to bottom, transparent 60%, #c8e8d5 60%);
-  }
-
-  /* ── COMPETENCIES ── */
-  #competencies { border-bottom: 1px solid var(--rule); }
-  .comp-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-  }
-  .comp-card {
-    background: var(--card-bg);
-    border: 1px solid var(--rule);
-    padding: 1.5rem;
-    transition: border-color 0.2s;
-  }
-  .comp-card:hover { border-color: var(--accent); }
-  .comp-card-label {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--accent);
-    margin-bottom: 0.75rem;
-  }
-  .comp-card h3 {
-    font-family: var(--serif);
-    font-size: 1.05rem;
-    font-weight: 400;
-    margin-bottom: 0.6rem;
-  }
-  .comp-card p {
-    font-size: 0.85rem;
-    font-weight: 300;
-    color: var(--mid);
-    line-height: 1.6;
-  }
-
-  /* ── EDUCATION & CERTS ── */
-  #education { border-bottom: 1px solid var(--rule); }
-  .edu-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.25rem;
-  }
-  .edu-card {
-    background: var(--card-bg);
-    border: 1px solid var(--rule);
-    padding: 1.5rem;
-  }
-  .edu-card-type {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-bottom: 0.5rem;
-  }
-  .edu-card h3 {
-    font-family: var(--serif);
-    font-size: 1.1rem;
-    font-weight: 400;
-    margin-bottom: 0.25rem;
-  }
-  .edu-card p {
-    font-size: 0.85rem;
-    color: var(--mid);
-    font-weight: 300;
-  }
-  .cert-card {
-    background: linear-gradient(135deg, #e8f1f8 0%, #f6f4ef 100%);
-    border: 1px solid #b3d0e8;
-  }
-  .cert-card .edu-card-type { color: var(--accent); }
-
-  /* ── CONTACT ── */
-  #contact { background: var(--ink); color: var(--paper); }
-  #contact .section-label { color: rgba(246,244,239,0.4); }
-  #contact .section-label::after { background: rgba(246,244,239,0.15); }
-  #contact h2 { color: var(--paper); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: 0.5rem; }
-  .contact-sub {
-    font-size: 1rem;
-    font-weight: 300;
-    color: rgba(246,244,239,0.6);
-    margin-bottom: 2.5rem;
-    max-width: 480px;
-  }
-  .contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    font-family: var(--mono);
-    font-size: 0.8rem;
-    color: var(--paper);
-    text-decoration: none;
-    padding: 0.65rem 1.1rem;
-    border: 1px solid rgba(246,244,239,0.2);
-    transition: border-color 0.2s, background 0.2s;
-  }
-  .contact-link:hover { border-color: rgba(246,244,239,0.6); background: rgba(255,255,255,0.05); }
-  .contact-link svg { opacity: 0.6; }
-
-  /* ── FOOTER ── */
-  footer {
-    background: var(--ink);
-    border-top: 1px solid rgba(246,244,239,0.1);
-    padding: 1.5rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  footer p {
-    font-family: var(--mono);
-    font-size: 0.65rem;
-    color: rgba(246,244,239,0.3);
-    letter-spacing: 0.06em;
-  }
-
-  /* ── RESPONSIVE ── */
-  @media (max-width: 720px) {
-    .hero-grid, .about-grid, .edu-grid { grid-template-columns: 1fr; gap: 2rem; }
-    .comp-grid { grid-template-columns: 1fr; }
-    nav { padding: 0 1rem; }
-    .nav-links { gap: 1rem; }
-    .container { padding: 0 1.25rem; }
-    section { padding: 3.5rem 0; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
-  }
+:root{--ink:#0f1923;--paper:#f6f4ef;--mid:#6b7a8d;--rule:#d4cfc6;--accent:#1a5c8a;--accent2:#2e9e7a;--card-bg:#fff;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif;--serif:'IBM Plex Serif',serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:var(--paper);border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;padding:0 2rem;height:56px}
+.nav-logo{font-family:var(--mono);font-size:.78rem;letter-spacing:.08em;color:var(--accent);text-decoration:none}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--mid);text-decoration:none;text-transform:uppercase;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.page{padding-top:56px}
+section{padding:5rem 0}
+.container{max-width:900px;margin:0 auto;padding:0 2rem}
+#hero{padding:6rem 0 5rem;border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.hero-eyebrow{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;color:var(--accent);text-transform:uppercase;margin-bottom:1rem}
+h1{font-family:var(--serif);font-size:clamp(2.2rem,4vw,3rem);font-weight:300;line-height:1.15;letter-spacing:-.01em;margin-bottom:1.25rem}
+h1 em{font-style:italic;color:var(--accent)}
+.hero-sub{font-size:1rem;color:var(--mid);font-weight:300;line-height:1.7;margin-bottom:2rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;padding:.65rem 1.4rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;transition:background .2s}
+.btn-primary:hover{background:#134b73}
+.btn-ghost{border:1px solid var(--rule);color:var(--ink);padding:.65rem 1.4rem;font-family:var(--mono);font-size:.75rem;letter-spacing:.06em;text-decoration:none;text-transform:uppercase;transition:border-color .2s}
+.btn-ghost:hover{border-color:var(--ink)}
+.hero-stats{background:var(--card-bg);border:1px solid var(--rule);padding:2rem}
+.stat-row{display:flex;justify-content:space-between;align-items:baseline;padding:.9rem 0;border-bottom:1px solid var(--rule)}
+.stat-row:last-child{border-bottom:none;padding-bottom:0}
+.stat-row:first-child{padding-top:0}
+.stat-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;color:var(--mid);text-transform:uppercase}
+.stat-value{font-family:var(--serif);font-size:1.5rem;font-weight:300}
+.stat-value span{font-family:var(--mono);font-size:.7rem;color:var(--mid);margin-left:.3rem}
+.section-label{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;color:var(--mid);text-transform:uppercase;display:flex;align-items:center;gap:.75rem;margin-bottom:2.5rem}
+.section-label::after{content:'';flex:1;height:1px;background:var(--rule)}
+h2{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,1.9rem);font-weight:300;margin-bottom:.5rem}
+#about,#experience,#competencies,#education{border-bottom:1px solid var(--rule)}
+.about-grid{display:grid;grid-template-columns:3fr 2fr;gap:4rem;align-items:start}
+.about-body p{font-weight:300;line-height:1.8;margin-bottom:1rem}
+.sidebar-card{background:var(--card-bg);border:1px solid var(--rule);padding:1.5rem}
+.sidebar-card h3{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mid);margin-bottom:1rem}
+.tag-list{display:flex;flex-wrap:wrap;gap:.5rem}
+.tag{font-family:var(--mono);font-size:.65rem;letter-spacing:.04em;padding:.25rem .6rem;background:var(--paper);border:1px solid var(--rule)}
+.tag.accent{background:#e8f1f8;border-color:#b3d0e8;color:var(--accent)}
+.tag.green{background:#e6f5f1;border-color:#a8ddd1;color:#1f7a5c}
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:0;top:.5rem;bottom:0;width:1px;background:var(--rule)}
+.job{padding-left:2rem;margin-bottom:3rem;position:relative}
+.job:last-child{margin-bottom:0}
+.job::before{content:'';position:absolute;left:-3px;top:.55rem;width:7px;height:7px;border-radius:50%;background:var(--accent)}
+.job-meta{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:.5rem;margin-bottom:.25rem}
+.job-title{font-size:1rem;font-weight:600}
+.job-date{font-family:var(--mono);font-size:.7rem;color:var(--mid);white-space:nowrap}
+.job-company{font-family:var(--mono);font-size:.72rem;color:var(--accent);letter-spacing:.04em;margin-bottom:.75rem}
+.job-bullets{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.job-bullets li{font-size:.92rem;font-weight:300;line-height:1.65;padding-left:1rem;position:relative}
+.job-bullets li::before{content:'—';position:absolute;left:0;color:var(--mid);font-size:.8rem}
+.job-highlight{background:linear-gradient(to bottom,transparent 60%,#c8e8d5 60%)}
+.comp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.25rem}
+.comp-card{background:var(--card-bg);border:1px solid var(--rule);padding:1.5rem}
+.comp-card-label{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.75rem}
+.comp-card h3{font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:.6rem}
+.comp-card p{font-size:.85rem;font-weight:300;color:#56657a;line-height:1.6}
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem}
+.edu-card{background:var(--card-bg);border:1px solid var(--rule);padding:1.5rem}
+.edu-card-type{font-family:var(--mono);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mid);margin-bottom:.5rem}
+.edu-card h3{font-family:var(--serif);font-size:1.1rem;font-weight:400;margin-bottom:.25rem}
+.edu-card p{font-size:.85rem;color:#56657a;font-weight:300}
+.cert-card{background:linear-gradient(135deg,#e8f1f8 0%,#f6f4ef 100%);border-color:#b3d0e8}
+.cert-card .edu-card-type{color:var(--accent)}
+#contact{background:var(--ink);color:var(--paper)}
+#contact .section-label{color:rgba(246,244,239,.55)}
+#contact .section-label::after{background:rgba(246,244,239,.15)}
+#contact h2{color:var(--paper);font-size:clamp(1.6rem,3vw,2.2rem)}
+.contact-sub{font-weight:300;color:rgba(246,244,239,.7);margin-bottom:2.5rem;max-width:480px}
+.contact-links{display:flex;flex-wrap:wrap;gap:1rem}
+.contact-link{display:flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.8rem;color:var(--paper);text-decoration:none;padding:.65rem 1.1rem;border:1px solid rgba(246,244,239,.2);transition:border-color .2s,background .2s}
+.contact-link:hover{border-color:rgba(246,244,239,.6);background:rgba(255,255,255,.05)}
+.contact-link svg{opacity:.6}
+footer{background:var(--ink);border-top:1px solid rgba(246,244,239,.1);padding:1.5rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap}
+footer p{font-family:var(--mono);font-size:.65rem;color:rgba(246,244,239,.5);letter-spacing:.06em}
+@media(max-width:720px){.hero-grid,.about-grid,.edu-grid{grid-template-columns:1fr;gap:2rem}.comp-grid{grid-template-columns:1fr}nav{padding:0 1rem}.nav-links{gap:1rem}.container{padding:0 1.25rem}section{padding:3.5rem 0}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
 <body>
-
-<!-- NAV -->
 <nav>
   <a class="nav-logo" href="#">CR // Portfolio</a>
   <ul class="nav-links">
@@ -459,7 +101,6 @@
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
-
 <div class="page">
 
   <!-- HERO -->
@@ -467,7 +108,7 @@
     <div class="container">
       <div class="hero-grid">
         <div>
-          <p class="hero-eyebrow">Continued Process Verification · Statistical Process Control · Data Analytics</p>
+          <p class="hero-eyebrow">CPV · SPC · Data Analytics</p>
           <h1>Chelsea<br><em>Redding</em></h1>
           <p class="hero-sub">
             12+ years building quality systems, validating processes, and turning complex manufacturing and testing data into clear, actionable insight — from lab bench to enterprise CPV program. I take initiative to implement continuous improvements, am proactive about risk assessment and mitigation, and build effective process monitoring systems using statistics and automation to catch adverse trends early.
@@ -477,33 +118,7 @@
             <a class="btn-ghost" href="#experience">View experience</a>
           </div>
         </div>
-        <div class="hero-stats" aria-label="Career highlights">
-          <div class="stat-row">
-            <span class="stat-label">Years in pharma</span>
-            <span class="stat-value">12+ 
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Human Error Reduction</span>
-            <span class="stat-value">50% 
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Workflow Improvement</span>
-            <span class="stat-value">30%+ <span>improvement</span></span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">Regulatory frameworks</span>
-            <span class="stat-value">12+ <span>standards</span></span>
-          </div>
-          <div class="stat-row">
-            <span class="stat-label">SSBB certification</span>
-            <span class="stat-value">In <span>progress</span></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
+ <!-- ABOUT -->
   <section id="about">
     <div class="container">
       <p class="section-label">About</p>
@@ -554,6 +169,53 @@
     </div>
   </section>
 
+  <!-- COMPETENCIES -->
+  <section id="competencies">
+    <div class="container">
+      <p class="section-label">Core Competencies</p>
+      <div class="comp-grid">
+
+        <div class="comp-card">
+          <p class="comp-card-label">Process Monitoring</p>
+          <h3>Continued Process Verification</h3>
+          <p>Stage 3 CPV program design and ownership, out-of-trend methodology, and annual product review support.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Statistical Analysis</p>
+          <h3>SPC &amp; Process Capability</h3>
+          <p>Control charts, Nelson/Western Electric rules, CpK/Ppk, ANOVA, normality testing, outlier and trend detection.</p>
+        </div>
+
+        <div class="comp-card">
+          <p class="comp-card-label">Data Tools</p>
+          <h3>Automation &amp; Analytics</h3>
+          <p>Custom Excel VBA macros, R, Python, SQL, Minitab for data cleaning, automated statistical analysis, and dynamic visualization of large datasets.</p>
+        </div>        
+        
+          <div class="comp-card">
+          <p class="comp-card-label">Validation</p>
+          <h3>Validation Lifecycle</h3>
+          <p>From facility and Process Design and method development to facility and equipment qualification, method validation, Process Performance Qualification, and Stability Studies to Continued Process Verification.</p>
+        </div>
+        
+        <div class="comp-card">
+          <p class="comp-card-label">Risk Management</p>
+          <h3>Risk Assessment &amp; Mitigation</h3>
+          <p>Investigations, root cause analyses, risk assessments (FMEA, FTA, ETA, dynamic), & CAPAs to protect product quality, compliance, and operational continuity.</p>
+        </div>
+
+
+        <div class="comp-card">
+          <p class="comp-card-label">Compliance</p>
+          <h3>Regulatory Knowledge &amp; Documentation</h3>
+          <p>Expert in 21 CFR 210/211, ICH Q-series, EU GMP Annex 15, USP/EP, ALCOA+ data integrity, DMF submission, Annual Product Reviews, Management Reviews, and Audit Preparation, Performance, Support, and Response.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  
   <!-- EXPERIENCE -->
   <section id="experience">
     <div class="container">
@@ -635,54 +297,7 @@
     </div>
   </section>
 
-  <!-- COMPETENCIES -->
-  <section id="competencies">
-    <div class="container">
-      <p class="section-label">Core Competencies</p>
-      <div class="comp-grid">
 
-        <div class="comp-card">
-          <p class="comp-card-label">Process Monitoring</p>
-          <h3>Continued Process Verification</h3>
-          <p>Stage 3 CPV program design and ownership, out-of-trend methodology, and annual product review support.</p>
-        </div>
-
-        <div class="comp-card">
-          <p class="comp-card-label">Statistical Analysis</p>
-          <h3>SPC &amp; Process Capability</h3>
-          <p>Control charts, Nelson/Western Electric rules, CpK/Ppk, ANOVA, normality testing, outlier and trend detection.</p>
-        </div>
-
-        <div class="comp-card">
-          <p class="comp-card-label">Data Tools</p>
-          <h3>Automation &amp; Analytics</h3>
-          <p>Custom Excel VBA macros, R, Python, SQL, Minitab for data cleaning, automated statistical analysis, and dynamic visualization of large datasets.</p>
-        </div>        
-        
-          <div class="comp-card">
-          <p class="comp-card-label">Validation</p>
-          <h3>Validation Lifecycle</h3>
-          <p>From facility and Process Design and method development to facility and equipment qualification, method validation, Process Performance Qualification, and Stability Studies to Continued Process Verification.</p>
-        </div>
-        
-        <div class="comp-card">
-          <p class="comp-card-label">Risk Management</p>
-          <h3>Risk Assessment &amp; Mitigation</h3>
-          <p>Investigations, root cause analyses, risk assessments (FMEA, FTA, ETA, dynamic), & CAPAs to protect product quality, compliance, and operational continuity.</p>
-        </div>
-
-
-        <div class="comp-card">
-          <p class="comp-card-label">Compliance</p>
-          <h3>Regulatory Knowledge &amp; Documentation</h3>
-          <p>Expert in 21 CFR 210/211, ICH Q-series, EU GMP Annex 15, USP/EP, ALCOA+ data integrity, DMF submission, Annual Product Reviews, Management Reviews, and Audit Preparation, Performance, Support, and Response.</p>
-        </div>
-
-      
-
-      </div>
-    </div>
-  </section>
 
   <!-- EDUCATION -->
   <section id="education">
